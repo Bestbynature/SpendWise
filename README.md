@@ -174,7 +174,7 @@ If you like this project, kindly drop a star for me.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to use this medium to appreciate [Microverse](https://microverse.org)
+ Original design idea by [Gregoire Vella](https://www.behance.net/gregoirevella) on Behance.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

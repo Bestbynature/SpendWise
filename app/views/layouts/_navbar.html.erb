@@ -1,0 +1,12 @@
+<header>
+<h3>SpendWise</h3>
+    <nav>
+        <ul>
+            <li><%# link_to "Home", root_path %></li>
+            <% if user_signed_in? %>
+            <%= button_to "sign out", destroy_user_session_path, method: :delete, data: {turbo_confirm: "Are you sure to end your session?"} %>
+            <% end %>
+        </ul>
+    </nav>
+</header>
+
