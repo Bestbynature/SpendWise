@@ -1,0 +1,14 @@
+<div class="splash-screen">
+<% if notice.present? %>
+  <p style="color: green; font-size: 0.7em", class="text-center mt-1"><%= notice %></p>
+<% end %>
+<% if alert.present? %>
+  <p style="color: red; font-size: 0.7em", class="text-center mt-1"><%= alert %></p>
+<% end %>
+
+    <div class="fw-bold">SpendWise</div>
+    <div>
+        <%= link_to 'Log In', new_user_session_path, class: 'login form-control fs-4' %>
+        <%= link_to 'Sign Up', new_user_registration_path, class: 'signup form-control fs-4' %>
+    </div>
+</div>

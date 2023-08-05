@@ -1,35 +1,42 @@
 <header>
-<% if user_signed_in? %>
-<div class="headerone">
-    <div>
-        <p><i class="fa-solid fa-bars fa-beat fa-2xl"></i></p>
-        <p class="fs-3">Transactions</p>
-        <p><i class="fa-solid fa-magnifying-glass fa-2xl"></i></p>
-    </div>
-    <div>
-    <% if current_page?(groups_path) || current_page?(root_path) %>
-        <p> 
-        <%= link_to "New group", new_group_path, class: "new" %>
-        </p>
-        <% else %>
-        <%= link_to :back, class: "wider" do %>
-            <p><i class="fa-solid fa-chevron-left"></i></p>
-        <% end %>
-        <%= link_to "Home", root_path, class: "new" %>
-    <% end %>
-        <p>Most recent</p>
-        <p><%= button_to "sign out", destroy_user_session_path, method: :delete, data: {turbo_confirm: "Are you sure to end your session?"} %>
-        </p>
-    </div>
-</div>
-<div class="thin"><i class="fa-solid fa-circle"></i></div>
+    <% if user_signed_in? %>
+    <div class="headerone">
 
-<div class="headertwo">
-    <p>Gift credit</p>
-    <p>$45.00</p>
-</div>
-<% else %>
-<h3>SpendWise</h3>
-<% end %>
+            <div>
+                <p><i class="fa-solid fa-bars fa-beat fa-2xl"></i></p>
+                <p class="fs-3">
+                <% if current_page?(groups_path) %>
+                Categories
+                <% else %>
+                Transactions
+                <% end %>
+                </p>
+                <p><i class="fa-solid fa-magnifying-glass fa-2xl"></i></p>
+            </div>
+
+            <div>
+            <% if current_page?(groups_path) || current_page?(root_path) %>
+                <p> 
+                <%= link_to "New group", new_group_path, class: "new" %>
+                </p>
+            <% else %>
+                <%= link_to :back, class: "wider" do %>
+                    <p><i class="fa-solid fa-chevron-left"></i></p>
+                <% end %>
+                    <p><%= link_to "Home", root_path, class: "new" %></p>
+            <% end %>
+                <p>Most recent</p>
+                <p><%= button_to "sign out", destroy_user_session_path, method: :delete, data: {turbo_confirm: "Are you sure to end your session?"}, class: "out" %>
+                </p>
+            </div>
+            <div class="thin"><i class="fa-solid fa-circle"></i></div>
+        </div>
+
+        <div class="headertwo">
+            <p>Gift credit</p>
+            <p>$45.00</p>
+        </div>
+
+    <% end %>
 </header>
 

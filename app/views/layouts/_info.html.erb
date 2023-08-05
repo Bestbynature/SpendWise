@@ -1,8 +1,8 @@
 
-<% if notice.present? %>
-  <p style="color: green; font-size: 0.5em", class="text-center mt-1"><%= notice %></p>
+<% if notice.present? && !([new_user_session_path, new_user_registration_path, root_path].include?(request.path)) %>
+  <p style="color: green; font-size: 0.5em;" class="text-center mt-1"><%= notice %></p>
 <% end %>
 
-<% if alert.present? %>
+<% if alert.present? && !([new_user_session_path, new_user_registration_path, root_path].include?(request.path)) %>
   <p style="color: red; font-size: 0.7em", class="text-center mt-1"><%= alert %></p>
 <% end %>

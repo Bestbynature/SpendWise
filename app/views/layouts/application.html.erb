@@ -16,9 +16,9 @@
     <%= render "layouts/navbar" %>
     <%= render "layouts/info" %>
       
-      <main>
-      <%= yield %>
-      </main>
+  <main class="<%= request.path.start_with?('/groups') ? 'main1' : 'main2' %>">
+    <%= yield %>
+  </main>
 
      <%= render "layouts/scan" %>
   </div>

@@ -4,5 +4,5 @@ Rails.application.routes.draw do
     resources :products
   end
 
-  root "groups#index"
+  root "splash#index"
 end
