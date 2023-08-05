@@ -20,7 +20,7 @@
                 <%= link_to "New group", new_group_path, class: "new" %>
                 </p>
             <% else %>
-                <%= link_to :back, class: "wider" do %>
+                <%= link_to groups_path, class: "wider" do %>
                     <p><i class="fa-solid fa-chevron-left"></i></p>
                 <% end %>
                     <p><%= link_to "Home", root_path, class: "new" %></p>

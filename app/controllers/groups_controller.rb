@@ -1,7 +1,6 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_group, only: %i[ show edit update destroy ]
-  before_action :set_icons, only: %i[ new edit create ]
 
   def index
     @groups = Group.all.includes(:products)
@@ -14,7 +13,7 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @products = Product.where(author_id: current_user.id, group_id: @group.id)
+    @products = Product.where(author_id: current_user.id, group_id: @group.id).order(created_at: :desc)
     @total = @products.sum(:amount)
   end
 
@@ -70,17 +69,6 @@ class GroupsController < ApplicationController
       @group = Group.find(params[:id])
     end
 
-    def set_icons
-      images_directory = Rails.root.join('app', 'assets', 'images')
-      all_files = Dir.glob(images_directory.join('*'))
-      image_files = all_files.select { |file| file.downcase.ends_with?('.jpg', '.jpeg', '.png', '.gif') }
-      @icon_names  = image_files.map { |file| File.basename(file, '.*') }
-
-      if @icon_names.empty?
-        flash[:alert] = "No images found in the assets directory. Please add some images."
-        redirect_to groups_path
-      end
-    end
-
+    
 
 end
