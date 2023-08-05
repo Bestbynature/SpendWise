@@ -12,21 +12,18 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.label :name, style: "display: block", class: "form-label fw-bold" %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
   <div>
-    <%= form.label :icon, style: "display: block" %>
-    <%= form.text_field :icon %>
+    <%= form.label :icon, style: "display: block", class: "form-label mt-2 fw-bold" %>
+    <%= form.select :icon, @icon_names, {}, class: "form-select" %>
   </div>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
+    <%= form.hidden_field :user_id, value: current_user.id%>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary form-control mt-3" %>
   </div>
 <% end %>

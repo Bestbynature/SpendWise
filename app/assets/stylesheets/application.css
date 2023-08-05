@@ -29,12 +29,159 @@
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #ccc;
-    /* color: var(--secondary-color); */
   }
   
   .wrapper {
     border: 2px solid var(--tertiary-color);
     max-width: 375px;
-    margin: 0 auto;
+    margin: 1em auto;
     height: 100vh;
+    border-radius: 1em;
+    position: relative;
+
+}
+
+.border {
+  border: 2px solid yellowgreen;
+}
+
+.headerone {
+  background-color: var(--primary-color);
+  padding: 1em 1em 0 1em;
+  
+}
+
+.headerone > div, .headertwo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #f0f0f0;
+}
+
+.headertwo {
+  background-color: #fff;
+  color: var(--tertiary-color);
+  padding: 0.5rem 0.5rem 0 0.5rem;
+}
+
+.headertwo > p:nth-of-type(2) {
+  font-weight: bold;
+}
+
+.headerone > div:nth-of-type(2) {
+ height: 2rem;
+ padding: 1em 0 0 0;
+}
+
+.headerone:first-child {
+  border-radius: 0.9em 0.9em 0 0;
+}
+
+/* .wider {
+  width:30%;
+  color: #fff;
+} */
+
+.wider p {
+  background-color: rgba(4, 46, 93, 0.1);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+}
+
+.wider p:hover {
+  background-color: rgba(4, 46, 93, 0.7);
+}
+
+
+
+.new {
+  color: var(--primary-color);
+  background-color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.new:hover {
+  filter: invert(100%);
+}
+
+.thin {
+  height: 0.5rem;
+  color: white;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.2em;
+}
+
+.icon {
+  width: 15%;
+  height: 3rem;
+}
+
+main {
+  margin: 0.5rem;
+  max-height: 55vh;
+  overflow-y: auto;
+}
+
+.pane {
+  background-color: #fff;
+  display: flex;
+}
+
+.pane1 {
+  flex: 1;
+  margin-left: 0.8rem;
+}
+
+.pane1 p:nth-of-type(2) {
+  font-size: 0.7em;
+}
+
+.pane1 p:nth-of-type(1) {
+  color: #878e97;
+}
+
+a {
+  text-decoration: none;
+  color: var(--tertiary-color); 
+}
+
+.base {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--secondary-color);
+  padding: 1em 0.7em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 0 0.93em 0.93em;
+}
+
+.base button {
+  border: 2px solid oldlace;
+  background-color: var(--secondary-color);
+  width: 95%;
+  color: oldlace;
+  height: 3em;
+}
+
+.deledit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.flat {
+  justify-content: space-between;
 }

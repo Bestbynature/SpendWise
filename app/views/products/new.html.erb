@@ -1,9 +1,9 @@
-<h1>New product</h1>
+<h1 class="text-primary-emphasis text-center">Add a New Product</h1>
 
 <%= render "form", product: @product %>
 
 <br>
 
 <div>
-  <%= link_to "Back to products", products_path %>
+  <%= link_to "Cancel", group_path(@group), class: "btn btn-danger form-control" %>
 </div>

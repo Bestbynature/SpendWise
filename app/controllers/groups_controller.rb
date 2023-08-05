@@ -1,40 +1,43 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: %i[ show edit update destroy ]
+  before_action :set_icons, only: %i[ new edit create ]
 
-  # GET /groups or /groups.json
   def index
-    @groups = Group.all
+    @groups = Group.all.includes(:products)
+    @total_value = {}
+    @groups.each do |group|
+      @products = Product.where(author_id: current_user.id, group_id: group.id)
+      @total_value[group.id] = @products.sum(:amount)
+    end
+    @total_value
   end
 
-  # GET /groups/1 or /groups/1.json
   def show
+    @products = Product.where(author_id: current_user.id, group_id: @group.id)
+    @total = @products.sum(:amount)
   end
 
-  # GET /groups/new
   def new
     @group = Group.new
   end
 
-  # GET /groups/1/edit
   def edit
   end
 
-  # POST /groups or /groups.json
   def create
     @group = Group.new(group_params)
 
     respond_to do |format|
       if @group.save
-        format.html { redirect_to group_url(@group), notice: "Group was successfully created." }
+        format.html { redirect_to groups_url, notice: "Group was successfully created." }
         format.json { render :show, status: :created, location: @group }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to groups_url, alert: "Unable to create group. Try a unique name!" }
         format.json { render json: @group.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /groups/1 or /groups/1.json
   def update
     respond_to do |format|
       if @group.update(group_params)
@@ -47,7 +50,6 @@ class GroupsController < ApplicationController
     end
   end
 
-  # DELETE /groups/1 or /groups/1.json
   def destroy
     @group.destroy
 
@@ -58,13 +60,26 @@ class GroupsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
+    def group_params
+      params.require(:group).permit(:name, :icon, :user_id)
+    end
+
     def set_group
       @group = Group.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
-    def group_params
-      params.require(:group).permit(:name, :icon, :user_id)
+    def set_icons
+      images_directory = Rails.root.join('app', 'assets', 'images')
+      all_files = Dir.glob(images_directory.join('*'))
+      image_files = all_files.select { |file| file.downcase.ends_with?('.jpg', '.jpeg', '.png', '.gif') }
+      @icon_names  = image_files.map { |file| File.basename(file, '.*') }
+
+      if @icon_names.empty?
+        flash[:alert] = "No images found in the assets directory. Please add some images."
+        redirect_to groups_path
+      end
     end
+
+
 end

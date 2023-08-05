@@ -1,4 +1,5 @@
 <div id="<%= dom_id group %>">
+<%= link_to group_path(group) do %>
   <div class="pane px-2 mb-2 pt-2">
     <%= image_tag group.icon, class: "icon", alt: group.name, title: group.name %>
       <div class="pane1 pt-2">
@@ -6,7 +7,8 @@
         <p><%= group.updated_at.strftime('%d %b %Y') %></p>
       </div>
       <div class="pane2 pt-2">
-        <p class="fw-bolder">$ <%= @total %></p>
+        <p class="fw-bolder">$ <%= @total_value[group.id] %></p>
       </div>
   </div>
+<% end %>
 </div>

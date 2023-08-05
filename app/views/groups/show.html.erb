@@ -1,10 +1,15 @@
-<p style="color: green"><%= notice %></p>
 
-<%= render @group %>
+<%= render @group, total: @total %>
 
-<div>
-  <%= link_to "Edit this group", edit_group_path(@group) %> |
-  <%= link_to "Back to groups", groups_path %>
+<div class="deledit mb-2">
+  <%= link_to "Edit", edit_group_path(@group), class: "btn btn-primary" %>
 
-  <%= button_to "Destroy this group", @group, method: :delete %>
+  <%= button_to "delete", @group, data: {turbo_confirm: "Are you sure?"}, method: :delete, class: "btn btn-danger" %>
+
+  <%= link_to "Add New Product", new_group_product_path(@group), class: "btn btn-success" %>
 </div>
+
+<div id="products">
+  <% @products.each do |product| %>
+    <%= render "groups/product", product: product %>
+  <% end %>
