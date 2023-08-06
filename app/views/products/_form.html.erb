@@ -1,4 +1,4 @@
-<%= form_with(model: product, url: group_products_path, method: :post) do |form| %>
+<%= form_with(model: product, url: group_products_path(group_id: @group.id), method: :post) do |form| %>
   <% if product.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -12,24 +12,25 @@
   <% end %>
 
   <div class="mt-2">
-    <%= form.label :name, style: "display: block", class: "form-label mb-2 fw-medium" %>
     <%= form.text_field :name, class: "form-control", placeholder: "Product's name"%>
   </div>
 
   <div class="mt-2">
-    <%= form.label :amount, style: "display: block", class: "form-label mb-2 fw-medium" %>
-    <%= form.text_field :amount, class: "form-control", placeholder: "Product's amount (e.g) 23.5" %>
+    <%= form.text_field :amount, class: "form-control mb-2", placeholder: "Product's amount (e.g) 23.5" %>
+  </div>
+    
+  <%= form.label :group_ids, "Select groups (at least one)", class: "form-label fw-bold" %>
+  
+  <div class="form-check group-select">
+    <%= form.collection_check_boxes :group_ids, Group.order(:name), :id, :name, class: "form-check-input form-control" %>
   </div>
 
   <div>
     <%= form.hidden_field :author_id, value: current_user.id, class: "form-control mb-2" %>
   </div>
-
-  <div>
-    <%= form.hidden_field :group_id, value: @group.id, class: "form-control mb-2" %>
-  </div>
+  <%= form.hidden_field :group_id, value: @group.id %>
 
   <div class="mt-2">
-    <%= form.submit class: "btn btn-primary form-control mt-2" %>
+  <%= form.submit class: "btn btn-primary form-control my-1" %>
   </div>
 <% end %>

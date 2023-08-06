@@ -1,61 +1,45 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_product, only: %i[ show edit update destroy ]
-  before_action :set_group, only: %i[ new edit update create destroy ]
 
   def new
+    @group = Group.find(params[:group_id])
     @product = Product.new
-    
-  end
-
-  def edit
   end
 
   def create
-    # @group = Group.find(params[:group_id])
-    @product = Product.new(product_params)
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to group_url(@group), notice: "Product was successfully created." }
+    @group = Group.find(params[:group_id])
+    product_name = params[:product][:name]
+    product_amount = params[:product][:amount]
+    product_author_id = params[:product][:author_id]
+    @group_ids = params[:product][:group_ids].reject(&:blank?)
+    successfully_created_products = create_products(product_name, product_amount, product_author_id, @group_ids)
+
+    if successfully_created_products.any?
+      respond_to do |format|
+        format.html { redirect_to group_url(@group), notice: 'Products were successfully created.' }
         format.json { render :show, status: :created, location: @product }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  def update
-    respond_to do |format|
-      if @product.update(product_params)
-        format.html { redirect_to product_url(@product), notice: "Product was successfully updated." }
-        format.json { render :show, status: :ok, location: @product }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+    else
+      respond_to do |format|
+        format.html do
+          redirect_to new_group_product_url(@group), alert: 'No products were created. Please fill all fields.'
+        end
       end
-    end
-  end
-
-  def destroy
-    @product.destroy
-
-    respond_to do |format|
-      format.html { redirect_to products_url, notice: "Product was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 
   private
-    def set_product
-      @product = Product.find(params[:id])
-    end
 
-    def set_group
-      @group = Group.find(params[:group_id])
+  def create_products(name, amount, author_id, group_ids)
+    created_products = []
+    group_ids.each do |group_id|
+      product = Product.new(name:, amount:, author_id:, group_id:)
+      if product.save
+        created_products << product
+      else
+        flash[:alert] = "Product #{name} could not be created: #{product.errors.full_messages.join(', ')}"
+      end
     end
-
-    def product_params
-      params.require(:product).permit(:name, :amount, :author_id, :group_id)
-    end
+    created_products
+  end
 end

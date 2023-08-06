@@ -14,21 +14,35 @@
                 <p><i class="fa-solid fa-magnifying-glass fa-2xl"></i></p>
             </div>
 
+
+
             <div>
-            <% if current_page?(groups_path) || current_page?(root_path) %>
-                <p> 
-                <%= link_to "New group", new_group_path, class: "new" %>
-                </p>
-            <% else %>
-                <%= link_to groups_path, class: "wider" do %>
-                    <p><i class="fa-solid fa-chevron-left"></i></p>
-                <% end %>
-                    <p><%= link_to "Home", root_path, class: "new" %></p>
-            <% end %>
-                <p>Most recent</p>
-                <p><%= button_to "sign out", destroy_user_session_path, method: :delete, data: {turbo_confirm: "Are you sure to end your session?"}, class: "out" %>
-                </p>
-            </div>
+  <% if current_page?(groups_path) || current_page?(root_path) %>
+    <p>
+      <%= link_to "New group", new_group_path, class: "new" %>
+    </p>
+  <% else %>
+    <% if request.path =~ /\/groups\/\d+\/products\/new/ %>
+      <% parent_group_path = request.path.split("/")[0..2].join("/") %>
+      <%= link_to parent_group_path, class: "wider" do %>
+        <p><i class="fa-solid fa-chevron-left"></i></p>
+      <% end %>
+    <% else %>
+      <%= link_to groups_path, class: "wider" do %>
+        <p><i class="fa-solid fa-chevron-left"></i></p>
+      <% end %>
+    <% end %>
+    <p><%= link_to "Home", groups_path, class: "new" %></p>
+  <% end %>
+  <p>Most recent</p>
+  <p>
+    <%= button_to "sign out", destroy_user_session_path, method: :delete, data: { turbo_confirm: "Are you sure to end your session?" }, class: "out" %>
+  </p>
+</div>
+
+
+
+
             <div class="thin"><i class="fa-solid fa-circle"></i></div>
         </div>
 
