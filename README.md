@@ -31,7 +31,7 @@
 
 # 📖 [SpendWise] <a name="about-project"></a>
 
-You are welcome to **[SpendWise]()**, where culinary possibilities turn real! This enchanting recipe app is your portal to a world of flavors and kitchen wonders. It generates a shopping list, revealing missing elements for your next creation. Explore trending recipes and favorites for enchanting ideas.
+You are welcome to **[SpendWise]()**. SpendWise is a mobile web application designed to help users efficiently manage their budgets and track expenses. With an intuitive and user-friendly interface, this app enables individuals to gain insights into their spending habits and make informed financial decisions.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -49,10 +49,15 @@ You are welcome to **[SpendWise]()**, where culinary possibilities turn real! Th
 
 ### Key Features <a name="key-features"></a>
 
-- **[Linter checks]**
-- **[Add data model]**
-- **[ERD]**
+- User Registration and Authentication: Allow users to register and create accounts securely. Implement authentication mechanisms to ensure only registered users can access their budget and expense data.
 
+- Budget Creation and Management: Enable users to set up and manage their budgets. Users should be able to define budget categories and allocate funds to each category.
+
+- Expense Tracking: Provide users with the ability to log their expenses and categorize them accordingly. Users should be able to enter transaction details like date, amount, and category.
+
+- Budget Visualization: Present budget information using charts or graphs to help users visualize their spending patterns, track progress, and identify areas of overspending.
+
+- Expense Insights and Analytics: Offer users insights and analytics based on their spending history. This could include trends, monthly summaries, and comparisons to help users make better financial decisions.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -132,7 +137,7 @@ You can deploy this project using:
 
 <!-- AUTHORS -->
 
-## 👥 Authors <a name="authors"></a>
+## 👥 Author <a name="authors"></a>
 
 👤 **Author: Damilare**
 
@@ -146,9 +151,11 @@ You can deploy this project using:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [x] **[contact form page]**
-- [x] **[A feature for a more detailed demographic data]**
-- [x] **[A feature for updating the list of countries]**
+- [x] Reports and Exporting: Allow users to generate and export financial reports in various formats, such as PDF or CSV, for further analysis or record-keeping.
+
+- [x] Goal Setting and Savings Tracking: Provide functionality for users to set financial goals and track progress towards achieving them. This could include savings goals, debt reduction targets, etc.
+
+- [x] Multi-Currency Support: If your app targets an international audience, consider adding support for multiple currencies to handle expenses incurred in different currencies.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
