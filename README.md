@@ -140,10 +140,12 @@ You can deploy this project using:
 ## 👥 Author <a name="authors"></a>
 
 👤 **Author: Damilare**
+| Availale Social Media | Link                                      |
+|--------------|-------------------------------------------|
+| GitHub       | [@githubhandle](https://github.com/Bestbynature)     |
+| Twitter      | [@twitterhandle](https://twitter.com/Dammybest)     |
+| LinkedIn     | [LinkedIn](https://www.linkedin.com/in/damilareismailabestbynature/) |
 
-- GitHub: [@githubhandle](https://github.com/Bestbynature)
-- Twitter: [@twitterhandle](https://twitter.com/Dammybest)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/damilareismailabestbynature/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
