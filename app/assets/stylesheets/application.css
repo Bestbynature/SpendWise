@@ -244,10 +244,10 @@ a {
 .group-select {
   display: grid;
   grid-template-columns: 10% 40% 10% 40%;
-  height: 12vh;
+  height: 10vh;
   overflow-y: auto;
   background-color: #fff;
-  padding: 10px;
+  padding: 5px;
   align-items: center;
   border-radius: 10px;
 }
