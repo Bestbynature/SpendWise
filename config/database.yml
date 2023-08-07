@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
+   url: <%= ENV["DATABASE_URL"] %>
   database: SpendWise_production
   username: SpendWise
   password: <%= ENV["SPENDWISE_DATABASE_PASSWORD"] %>
