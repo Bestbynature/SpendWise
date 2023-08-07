@@ -7,4 +7,12 @@ class Product < ApplicationRecord
   validates :amount, presence: true, numericality: { greater_than: 0 }
   validates :author_id, presence: true
   validates :group_id, presence: true
+
+  before_destroy :destroy_associated_group_products
+
+  private
+
+  def destroy_associated_group_products
+    group_products.destroy_all
+  end
 end

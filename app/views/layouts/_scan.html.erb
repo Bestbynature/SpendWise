@@ -1,4 +1,4 @@
-<% if current_page?(groups_path) || current_page?(group_path(@group)) %>
+<% if current_page?(groups_path) || @group&.persisted? %>
   <div class="base">
     <button type="button">SCAN</button>
   </div>

@@ -29,7 +29,16 @@ gem 'devise'
 gem 'rubocop', '>= 1.0', '< 2.0'
 
 group :development, :test do
+  gem 'byebug', platform: :mri
+  gem 'capybara'
+  gem 'database_cleaner'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'rails-controller-testing'
+  gem 'rspec-mocks', '3.12.6'
+  gem 'rspec-rails'
+  gem 'selenium-webdriver', '~> 4.0'
 end
 
 group :development do
@@ -37,7 +46,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
+  gem 'shoulda-matchers'
 end
+
+gem 'rufo', '~> 0.16.2'
