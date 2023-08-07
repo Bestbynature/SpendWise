@@ -31,7 +31,7 @@
 
 # 📖 [SpendWise] <a name="about-project"></a>
 
-You are welcome to **[SpendWise]()**. SpendWise is a mobile web application designed to help users efficiently manage their budgets and track expenses. With an intuitive and user-friendly interface, this app enables individuals to gain insights into their spending habits and make informed financial decisions.
+You are welcome to **[SpendWise](https://spendwise-jrzs.onrender.com)**. SpendWise is a mobile web application designed to help users efficiently manage their budgets and track expenses. With an intuitive and user-friendly interface, this app enables individuals to gain insights into their spending habits and make informed financial decisions.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -122,16 +122,22 @@ or
 Run "rubocop -A to fix linters"
 ```
 
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Deployment <a name="triangular_flag_on_post-deployment"></a>
 
 You can deploy this project using:
 
-- github pages
-```sh
-- npm run deploy
-```
+- render
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Live Demo <a name="triangular_flag_on_post-deployment"></a>
+
+For a live demo of the Spendwise application, please use this [link](https://spendwise-jrzs.onrender.com)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
