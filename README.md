@@ -33,6 +33,12 @@
 
 You are welcome to **[SpendWise](https://spendwise-jrzs.onrender.com)**. SpendWise is a mobile web application designed to help users efficiently manage their budgets and track expenses. With an intuitive and user-friendly interface, this app enables individuals to gain insights into their spending habits and make informed financial decisions.
 
+<img width="295" alt="splashScreen" src="https://github.com/Bestbynature/SpendWise/assets/104390780/5ec57e0c-3504-4f6b-b0aa-f30c2ad03cb3">
+
+
+
+<img width="557" alt="works6_img" src="https://github.com/Bestbynature/SpendWise/assets/104390780/04697eec-11e9-4176-a075-a3347b3b680c">
+
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
